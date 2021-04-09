@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  section.hero.is-light.is-fullheight
+    .hero-head
+      header.navbar
+        .container
+          .navbar-brand
+            a.navbar-item
+            span.navbar-burger.burger(data-target='navbarMenuHeroC')
+              span
+              span
+              span
+          #navbarMenuHeroC.navbar-menu
+            .navbar-end
+              span.navbar-item
+                a.button.is-light.is-inverted(href='https://github.com/threevanny/ardunio' target='_blank')
+                  span.icon
+                    i.fab.fa-github
+                  span GitHub
+    .hero-body
+      .container.has-text-centered
+        main.content
+          h1.title Proyecto Arduino
+          p.subtitle Lorem ipsum dolor sit amet consed.
+    .hero-foot
+      .tabs.is-boxed.is-fullwidth
+        .container.has-text-centered
+          p
+            small &copy; 2021 H.G.R. All rights reserved.
