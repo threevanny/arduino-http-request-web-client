@@ -13,7 +13,7 @@ function getData() {
     if (dataJSON.length != 0) {
       for (const d of dataJSON) {
         console.log(`T:${d.temperature}, i:${d.illumination}`)
-        temperature.innerText = d.temperature
+        temperature.innerText = `${d.temperature}°`
         illumination.innerText = d.illumination
       }
     } else {

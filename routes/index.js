@@ -8,8 +8,8 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/arduino', async (req, res, next) => {
-  let t = req.query.t || -404
-  let i = req.query.i || -404
+  let t = parseInt(req.query.t) || -404
+  let i = parseInt(req.query.i) || -404
 
   const data = new Data({
     temperature: t,
