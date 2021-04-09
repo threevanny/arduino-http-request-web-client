@@ -34,7 +34,7 @@ function getData() {
         } else {
           tagTemperature.innerHTML = ""
           temperature.innerText = `${d.temperature}°`
-          if (d.temperature <= 15)
+          if (d.temperature <= 18)
             tagTemperature.innerHTML += `<span class="tag is-info">Baja</span>`
           else if (d.temperature <= 25)
             tagTemperature.innerHTML += `<span class="tag is-warning">Regular</span>`
@@ -48,11 +48,11 @@ function getData() {
         } else {
           tagIllumination.innerHTML = ""
           illumination.innerText = d.illumination
-          if (d.illumination <= 35)
+          if (d.illumination <= 60)
             tagIllumination.innerHTML += `<span class="tag is-danger">Baja</span>`
-          else if (d.illumination <= 50)
+          else if (d.illumination <= 80)
             tagIllumination.innerHTML += `<span class="tag is-warning">Regular</span>`
-          else if (d.illumination > 50)
+          else if (d.illumination > 100)
             tagIllumination.innerHTML += `<span class="tag is-success">Alta</span>`
           else
             tagIllumination.innerHTML += `<span class="tag is-light">Normal</span>`
