@@ -6,7 +6,6 @@ block content
       header.navbar
         .container
           .navbar-brand
-            a.navbar-item
             span.navbar-burger.burger(data-target='navbarMenuHeroC')
               span
               span
@@ -14,17 +13,38 @@ block content
           #navbarMenuHeroC.navbar-menu
             .navbar-end
               span.navbar-item
-                a.button.is-light.is-inverted(href='https://github.com/threevanny/ardunio' target='_blank')
+                a.button.is-light.is-inverted(href='https://github.com/threevanny/arduino-http-request-web-client' target='_blank')
                   span.icon
                     i.fab.fa-github
                   span GitHub
     .hero-body
       .container.has-text-centered
-        main.content
-          h1.title Proyecto Arduino
-          p.subtitle Lorem ipsum dolor sit amet consed.
+        main
+        .columns
+          .column
+            button.button.is-light.is-inverted.is-active.mb-5
+              span.icon
+                i.fas.fa-clock
+              #clock.clock(onload='startClock();')
+            .columns 
+              .column.is-6
+                .box
+                  i.fas.fa-sun
+                  h2 Temperatura
+                  h1.title#temperature 0°
+              .column.is-6
+                .box
+                  i.fas.fa-lightbulb 
+                  h2 Iluminación
+                  h1.title#illumination 0
+
+
+
     .hero-foot
       .tabs.is-boxed.is-fullwidth
         .container.has-text-centered
           p
             small &copy; 2021 H.G.R. All rights reserved.
+block scripts
+  script(src='javascripts/clock.js')
+  script(src='javascripts/scripts.js')
