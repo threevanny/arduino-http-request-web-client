@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-//require('dotenv').config();
+require('dotenv').config();
 
 const mongoDB = process.env.MONGODB_URI || 'mongodb://localhost/arduino'
 
