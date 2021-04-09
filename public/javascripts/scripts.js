@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const temperature = document.getElementById('temperature')
 const illumination = document.getElementById('illumination')
+const tagTemperature = document.getElementById('tagTemperature')
+const tagIllumination = document.getElementById('tagIllumination')
 
 function getData() {
   let xhr
@@ -26,16 +28,34 @@ function getData() {
     const dataJSON = JSON.parse(data.target.response);
     if (dataJSON.length != 0) {
       for (const d of dataJSON) {
-        console.log(`T:${d.temperature}, i:${d.illumination}`)
+        console.log(`Temp:${d.temperature}, illum:${d.illumination}`)
         if (d.temperatur === -404) {
           temperature.innerText = `No Data`
         } else {
+          tagTemperature.innerHTML = ""
           temperature.innerText = `${d.temperature}°`
+          if (d.temperature <= 15)
+            tagTemperature.innerHTML += `<span class="tag is-info">Baja</span>`
+          else if (d.temperature <= 25)
+            tagTemperature.innerHTML += `<span class="tag is-warning">Regular</span>`
+          else if (d.temperature > 25)
+            tagTemperature.innerHTML += `<span class="tag is-success">Alta</span>`
+          else
+            tagTemperature.innerHTML += `<span class="tag is-light">Normal</span>`
         }
         if (d.illumination === -404) {
           illumination.innerText = `No Data`
         } else {
+          tagIllumination.innerHTML = ""
           illumination.innerText = d.illumination
+          if (d.illumination <= 35)
+            tagIllumination.innerHTML += `<span class="tag is-danger">Baja</span>`
+          else if (d.illumination <= 50)
+            tagIllumination.innerHTML += `<span class="tag is-warning">Regular</span>`
+          else if (d.illumination > 50)
+            tagIllumination.innerHTML += `<span class="tag is-success">Alta</span>`
+          else
+            tagIllumination.innerHTML += `<span class="tag is-light">Normal</span>`
         }
       }
     } else {
