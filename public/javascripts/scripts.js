@@ -1,3 +1,17 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+  if ($navbarBurgers.length > 0) {
+    $navbarBurgers.forEach(el => {
+      el.addEventListener('click', () => {
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
+        el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+      });
+    });
+  }
+});
+
 const temperature = document.getElementById('temperature')
 const illumination = document.getElementById('illumination')
 
@@ -13,8 +27,16 @@ function getData() {
     if (dataJSON.length != 0) {
       for (const d of dataJSON) {
         console.log(`T:${d.temperature}, i:${d.illumination}`)
-        temperature.innerText = `${d.temperature}°`
-        illumination.innerText = d.illumination
+        if (d.temperatur === -404) {
+          temperature.innerText = `No Data`
+        } else {
+          temperature.innerText = `${d.temperature}°`
+        }
+        if (d.illumination === -404) {
+          illumination.innerText = `No Data`
+        } else {
+          illumination.innerText = d.illumination
+        }
       }
     } else {
       console.error('No Data')
